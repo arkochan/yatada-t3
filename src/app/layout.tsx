@@ -1,13 +1,13 @@
-import "./globals.css";
-
-export default function RootLayout({
-    children,
+export default function DashboardLayout({
+  children, // will be a page or nested layout
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
+    <section>
+      {/* Include shared UI here e.g. a header or sidebar */}
+      <nav></nav>
+      {children}
+    </section>
+  )
 }
