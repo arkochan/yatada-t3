@@ -28,6 +28,6 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.mjs"
-  ],
+, "k.x"  ],
   "exclude": ["node_modules"]
 }
