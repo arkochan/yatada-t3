@@ -1,14 +1,29 @@
+import "./globals.css";
 import React from "react";
-type LayoutProps = {
+// import { type NextPage } from "next";
+// import Head from "next/head";
+// import Link from "next/link";
+// import { api } from "~/utils/api";
+import type { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+    title: "Home",
+    description: "Welcome to Next.js",
+};
+
+export default function RootLayout({
+    // Layouts must accept a children prop.
+    // This will be populated with nested layouts or pages
+    children,
+}: {
     children: React.ReactNode;
-};
-
-const Layout = ({ children }: LayoutProps) => {
+}) {
     return (
-        <div>
-            <main>{children}</main>
-        </div>
+       
+            <html lang="en">
+                <body>{children}</body>
+            </html>
+        
     );
-};
-
-export default Layout;
+}
