@@ -6,9 +6,8 @@ import React from "react";
 // import { api } from "~/utils/api";
 import type { Metadata } from "next";
 
-
 export const metadata: Metadata = {
-    title: "Home",
+    title: "Yatada",
     description: "Welcome to Next.js",
 };
 
@@ -20,10 +19,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-       
-            <html lang="en">
-                <body>{children}</body>
-            </html>
-        
+        <html lang="en">
+            <body>{children}</body>
+        </html>
     );
 }

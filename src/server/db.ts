@@ -1,5 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { env } from "~/env.mjs";
+import { currentUser } from "~/app/Inputbox";
+
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
@@ -13,3 +15,4 @@ export const prisma =
   });
 
 if (env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+
