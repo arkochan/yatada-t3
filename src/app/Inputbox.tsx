@@ -14,9 +14,7 @@ import type { Task, User } from "@prisma/client";
 // }
 export const currentUser = 190041141;
 
-
 function InputBox(): JSX.Element {
-
     const [tasks, setTasks] = useState<Task[]>([]);
     const [formTask, setFormTask] = useState<Task>({
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -48,7 +46,7 @@ function InputBox(): JSX.Element {
     const addTask = () => {
         if (formTask.task === "") return;
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        setFormTask((prevTask) => ({ ...prevTask, id: uuid() }));
+        formTask.id = uuid();
         setTasks((prevTasks) => [...prevTasks, formTask]);
         setFormTask({
             id: "",
@@ -56,6 +54,8 @@ function InputBox(): JSX.Element {
             doneness: false,
             userId: currentUser,
         });
+        
+
     };
 
     return (
