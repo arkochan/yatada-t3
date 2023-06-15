@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     return NextResponse.json(tasks);
 }
 
-export async function PUT(req: Request) {
+export async function PATCH(req: Request) {
     // Handle the API request here
     const task: Task = (await req.json()) as Task;
     const tasks = await updateUsersTask(task);

@@ -1,11 +1,14 @@
 "use client";
 import { v4 as uuid } from "uuid";
-
-// import { Task } from "@prisma/client";
 import React, { useState, type ChangeEvent } from "react";
-import { AiFillPlusSquare } from "react-icons/Ai";
-import { prisma } from "~/server/db";
-import type { Task, User } from "@prisma/client";
+// import { AiFillPlusSquare } from "react-icons/Ai";
+import type { Task } from "@prisma/client";
+// import {
+//     fetchUsersTasks,
+//     createUsersTask,
+//     deleteUsersTask,
+//     switchDoneUsersTask,
+// } from "./apiCalls";
 
 // interface Task {
 //     id: string;
@@ -54,8 +57,6 @@ function InputBox(): JSX.Element {
             doneness: false,
             userId: currentUser,
         });
-        
-
     };
 
     return (
@@ -73,10 +74,12 @@ function InputBox(): JSX.Element {
                         value={formTask.task}
                         onChange={handleInputChange}
                     />
-                    <AiFillPlusSquare
-                        className="ml-2 text-gray-400"
+                    <button
+                        className="ml-2 w-6 rounded-lg border-2  text-gray-400"
                         onClick={addTask}
-                    />
+                    >
+                        +
+                    </button>
                 </div>
 
                 {tasks.map((task) => (
