@@ -35,6 +35,9 @@ function InputBox(): JSX.Element {
         }));
         console.log(value);
     };
+    function deleteUsersTask(id: string) {
+        setTasks((prevtasks) => prevtasks.filter((task) => task.id !== id));
+    }
     const handleCheck = (task: Task) => {
         console.log(`DELETE ${task.id}`);
         setTasks((prevTasks) =>
@@ -61,14 +64,16 @@ function InputBox(): JSX.Element {
 
     return (
         <div className="bg-black p-10 text-white">
-            <div className="text-center">
-                <div className="flex items-center">
+            <div className=" text-center">
+                <div className="min-w-l flex max-w-xl items-center p-2 ">
                     <input
-                        className="rounded-sm 
+                        className="m-auto
+                                    rounded-sm
                                     border
                                     border-gray-600
-                                    bg-zinc-800
-                                    px-2 font-montserrat"
+                                    bg-zinc-800 px-2
+                                    font-montserrat
+                                    "
                         name="task"
                         type="text"
                         value={formTask.task}
@@ -81,18 +86,25 @@ function InputBox(): JSX.Element {
                         +
                     </button>
                 </div>
-
                 {tasks.map((task) => (
-                    <div key={task.id} className="flex items-center">
+                    <div key={task.id} className=" flex  items-center p-2">
                         <input
+                            className=""
                             type="checkbox"
                             name="doneness"
                             checked={task.doneness}
                             onChange={() => handleCheck(task)}
                         />
-                        <p className="pl-2 text-left font-montserrat ">
-                            {task.task}
-                        </p>
+
+                        <div className="flex w-full justify-between">
+                            <p className="pl-2 font-montserrat ">{task.task}</p>
+                            <button
+                                className="ml-2 w-fit rounded-lg border-2  border-red-600"
+                                onClick={() => deleteUsersTask(task.id)}
+                            >
+                                🖕( ͡─ ︹ ͡─)
+                            </button>
+                        </div>
                     </div>
                 ))}
             </div>
