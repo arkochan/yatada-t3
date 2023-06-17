@@ -18,6 +18,7 @@ import type { Task } from "@prisma/client";
 export const currentUser = 190041141;
 
 function InputBox(): JSX.Element {
+    const [userId, setUserId] = useState("");
     const [tasks, setTasks] = useState<Task[]>([]);
     const [formTask, setFormTask] = useState<Task>({
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -65,6 +66,23 @@ function InputBox(): JSX.Element {
     return (
         <div className="bg-black p-10 text-white">
             <div className=" text-center">
+                <input
+                    type="text"
+                    name="userID"
+                    placeholder="User ID"
+                    value={userId}
+                    onChange={(event) => setUserId(event.target.value)}
+                    className="
+                    m-4
+                    w-full
+                    rounded-sm
+                        border
+                        border-gray-600
+                        bg-zinc-800
+                        px-2 text-center
+                        font-montserrat
+                        "
+                />
                 <div className="min-w-l flex max-w-xl items-center p-2 ">
                     <input
                         className="m-auto
