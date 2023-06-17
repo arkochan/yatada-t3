@@ -88,13 +88,9 @@ function InputBox(): JSX.Element {
                 </div>
                 {tasks.map((task) => (
                     <div key={task.id} className=" flex  items-center p-2">
-                        <input
-                            className=""
-                            type="checkbox"
-                            name="doneness"
-                            checked={task.doneness}
-                            onChange={() => handleCheck(task)}
-                        />
+                        <div className="" onClick={() => handleCheck(task)}>
+                            {task.doneness ? <p>😎</p> : <p>😥</p>}
+                        </div>
 
                         <div className="flex w-full justify-between">
                             <p className="pl-2 font-montserrat ">{task.task}</p>
